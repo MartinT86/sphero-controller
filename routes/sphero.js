@@ -3,31 +3,31 @@ var router = express.Router();
 var sphero = require("sphero"),
     orb = sphero("/dev/rfcomm0"); // change port accordingly 
 
-
-
-router.get('/red', function(req, res) {
-  orb.connect(function() {
-    // Sphero's connected! 
-    // do some cool stuff here! 
-    //orb.roll(50, 0);
-    //   orb.color("green");
-    orb.color("red");
-        
+orb.connect(function() {
+    orb.color("white");
     });
+
+router.post('/red', function(req, res) {
+  //orb.connect(function() {
+    orb.color("red");
+    //});
       res.send('gone red');
 
 });
 
-router.get('/green', function(req, res) {
-  orb.connect(function() {
-    // Sphero's connected! 
-    // do some cool stuff here! 
-    //orb.roll(50, 0);
-    //   orb.color("green");
+router.post('/green', function(req, res) {
+  //orb.connect(function() {
     orb.color("green");
-        
-    });
+    //});
       res.send('gone green');
+
+});
+
+router.post('/blue', function(req, res) {
+  //orb.connect(function() {
+    orb.color("blue");
+    //});
+      res.send('gone blue');
 
 });
 
